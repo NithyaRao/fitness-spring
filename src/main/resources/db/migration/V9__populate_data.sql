@@ -21,3 +21,6 @@ INSERT INTO `fitness`.`runs` (`version`, `start`, `stop`, `device_id`)
 VALUES ('0', '2016-09-07@10:15:30', '2016-09-07@10:25:45', '2');
 INSERT INTO `fitness`.`runs` (`version`, `start`, `device_id`)
 VALUES ('0', '2016-09-07@10:15:30', '1');
+
+INSERT INTO `fitness`.`positions` (`latitude`, `longitude`, `altitude`, `run_id`, `current`)
+VALUES ('32.6', '101.7', '12.8', '1', '2016-09-07@10:15:33');

@@ -1,6 +1,7 @@
 package com.chyld.services;
 
 import com.chyld.entities.Device;
+import com.chyld.entities.Position;
 import com.chyld.entities.Run;
 import com.chyld.repositories.IDeviceRepository;
 import com.chyld.repositories.IRunRepository;
@@ -43,5 +44,16 @@ public class DeviceService {
         Run r = this.deviceRepository.findActiveRunByDeviceSerialNumber(serial);
         r.setStop(new Date());
         return this.runRepository.save(r);
+    }
+
+    public Position addPosition(String serial, Position position){
+        Run r = this.deviceRepository.findActiveRunByDeviceSerialNumber(serial);
+        if (r == null){
+            return null;
+        }
+        position.setRun(r);
+        r.getPositions().add(position);
+        this.runRepository.save(r);
+        return position;
     }
 }

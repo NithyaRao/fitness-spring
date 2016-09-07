@@ -14,3 +14,10 @@ VALUES ('0', 'RUN', '3', '900', '45', '1');
 
 INSERT INTO `fitness`.`devices` (`version`, `serial`, `product`, `category`, `user_id`)
 VALUES ('0', '123ABC', 'Fitbit Surge', 'Running', '1');
+INSERT INTO `fitness`.`devices` (`version`, `serial`, `product`, `category`, `user_id`)
+VALUES ('0', '456DEF', 'Fitbit Charge', 'Running', '1');
+
+INSERT INTO `fitness`.`runs` (`version`, `start`, `stop`, `device_id`)
+VALUES ('0', '2016-09-07@10:15:30', '2016-09-07@10:25:45', '2');
+INSERT INTO `fitness`.`runs` (`version`, `start`, `device_id`)
+VALUES ('0', '2016-09-07@10:15:30', '1');

@@ -9,19 +9,16 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.List;
 
 @Entity
-@Table(name = "devices")
+@Table(name = "runs")
 @Data
-public class Device {
+public class Run {
     private int id;
     private int version;
-    private String serial;
-    private String product;
-    private DeviceTypeEnum category;
-    private User user;
-    private List<Run> runs;
+    private Date start;
+    private Date stop;
+    private Device device;
     private Date created;
     private Date modified;
 
@@ -34,20 +31,11 @@ public class Device {
     public int getVersion() {return version;}
     public void setVersion(int version) {this.version = version;}
 
-    @Enumerated(EnumType.STRING)
-    @Column(columnDefinition = "ENUM('RUNNING', 'SWIMMING', 'BIKING')")
-    public DeviceTypeEnum getCategory() {return category;}
-    public void setCategory(DeviceTypeEnum category) {this.category = category;}
-
     @ManyToOne
-    @JoinColumn(name="user_id")
+    @JoinColumn(name="device_id")
     @JsonIgnore
-    public User getUser() {return user;}
-    public void setUser(User user) {this.user = user;}
-
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "device")
-    public List<Run> getRuns() {return runs;}
-    public void setRuns(List<Run> runs) {this.runs = runs;}
+    public Device getDevice() {return device;}
+    public void setDevice(Device device) {this.device = device;}
 
     @CreationTimestamp
     public Date getCreated() {return created;}

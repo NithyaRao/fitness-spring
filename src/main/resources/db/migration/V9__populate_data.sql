@@ -11,3 +11,6 @@ VALUES ('0', 'M', '25', '70', '165', 'http://findicons.com/files/icons/1072/face
 
 INSERT INTO `fitness`.`exercises` (`version`, `type`, `quantity`, `calories`, `duration`, `user_id`)
 VALUES ('0', 'RUN', '3', '900', '45', '1');
+
+INSERT INTO `fitness`.`devices` (`version`, `serial`, `product`, `category`, `user_id`)
+VALUES ('0', '123ABC', 'Fitbit Surge', 'Running', '1');
